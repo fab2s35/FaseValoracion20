@@ -28,9 +28,17 @@ clientsController.createClients = async (req, res) => {
         //Solicitar los datos
         const { name, email, password, phone, age } = req.body;
 
+            //Verificamos si el empleado ya existe
+            const existingClient = await clientsModel.findOne({ email });
+            if (existingClient) {
+              return res.json({ message: "Cliente ya existe" });
+            }
+
         if (age < 18 ) {
             return res.status(400).json({ message: "Debe ser mayor a 18 años"})
         }
+
+        
 
         //Guardamos en la base de datos
         const newclient = new clientsModel({ name, email, password, phone, age })
@@ -43,6 +51,8 @@ clientsController.createClients = async (req, res) => {
         
     }
 };
+
+
 
 // DELETE
 clientsController.deleteClients = async (req, res) => {
