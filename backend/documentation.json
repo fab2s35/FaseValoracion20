@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "home-iot-api",
+    "description": "The API for the EatBacon IOT project",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ricaldone-a9b/FaseValoracion/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/api/clients": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Select Clients",
+        "description": "Un método para poder ver todos los clientes que hay",
+        "operationId": "get-api-clients",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Update client",
+        "description": "Aqui podemos actualizar los datos de cliente",
+        "operationId": "put-api-clients",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_clients_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Insert client",
+        "description": "Añade nuevos clientes",
+        "operationId": "post-api-clients",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_clients_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Delete client",
+        "description": "En este metofdo se puede borrar los clientes",
+        "operationId": "delete-api-clients",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/appointment": {
+      "get": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Select appiontment",
+        "description": "Un método para poder ver las reservas que hayan",
+        "operationId": "get-api-appointment",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Update Appointments",
+        "description": "Aqui podemos actualizar los datos de la reserva",
+        "operationId": "put-api-appointment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_appointment_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Insert Appointments",
+        "description": "Añade una reserva nueva",
+        "operationId": "post-api-appointment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_appointment_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "2XX": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Appointment"
+        ],
+        "summary": "Delete Appointment",
+        "description": "Un metodo para eliminar reservas",
+        "operationId": "delete-api-appointment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "api_clients_body": {
+        "required": [
+          "age",
+          "email",
+          "name",
+          "password",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "w82zolw0jldjh"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "hnvy08q9a12a7"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "q88y8lm3s31fz"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "7bicpkl8o55wi"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "12a1vda53i184"
+            }
+          }
+        }
+      },
+      "api_clients_body_1": {
+        "required": [
+          "age",
+          "email",
+          "name",
+          "password",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "vezmp98sixvjk"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "xkc48luqbpnjt"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "hce0xxxkj4yxm"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "7vabai6o3zz93"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "s7dmqb9msrtl4"
+            }
+          }
+        }
+      },
+      "api_appointment_body": {
+        "type": "object",
+        "properties": {
+          "idClient": {
+            "type": "string"
+          },
+          "vehicle": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "x-examples": {
+          "Example 1": {
+            "idClient": "64f12c34a5e2f99b8a123456",
+            "vehicle": "Toyota Corolla 2020",
+            "service": "Cambio de aceite",
+            "status": "pendiente"
+          }
+        }
+      },
+      "api_appointment_body_1": {
+        "type": "object",
+        "properties": {
+          "idClient": {
+            "type": "string"
+          },
+          "vehicle": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "x-examples": {
+          "Example 1": {
+            "idClient": "64f12c34a5e2f99b8a123456",
+            "vehicle": "Toyota Corolla 2020",
+            "service": "Cambio de aceite",
+            "status": "pendiente"
+          }
+        }
+      }
+    }
+  }
+}
